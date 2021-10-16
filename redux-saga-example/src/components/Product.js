@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 export default class Product extends Component {
   render() {
@@ -10,11 +9,4 @@ export default class Product extends Component {
       </div>
     )
   }
-}
-
-Product.propTypes = {
-  price: PropTypes.number,
-  quantity: PropTypes.number,
-  title: PropTypes.string,
-  action: PropTypes.node,
 }

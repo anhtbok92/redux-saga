@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Product from './Product'
 
 export default class ProductItem extends Component {
@@ -17,13 +16,4 @@ export default class ProductItem extends Component {
       </div>
     )
   }
-}
-
-ProductItem.propTypes = {
-  product: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    inventory: PropTypes.number.isRequired,
-  }).isRequired,
-  onAddToCartClicked: PropTypes.func.isRequired,
 }
