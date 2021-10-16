@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CartItem from './CartItem'
 import { connect } from 'react-redux'
-import { checkout, removeFromCart } from '../actions'
-import { getTotal, getCartProducts, getCheckoutError, isCheckoutPending } from '../reducers'
+import { removeFromCart } from '../actions'
+import { getTotal, getCartProducts } from '../reducers'
 
 class Cart extends Component {
   render() {
@@ -31,9 +31,6 @@ class Cart extends Component {
         <h3>Your Cart</h3>
         <div>{nodes}</div>
         <p>Total: &#36;{total}</p>
-        <button onClick={checkout} disabled={checkoutAllowed ? '' : 'disabled'}>
-          Checkout
-        </button>
         <div style={{ color: 'red' }}>{error}</div>
       </div>
     )
@@ -52,10 +49,8 @@ Cart.propTypes = {
   ).isRequired,
   total: PropTypes.string,
   error: PropTypes.string,
-  checkoutPending: PropTypes.bool,
 
   // actions
-  checkout: PropTypes.func.isRequired,
   removeFromCart: PropTypes.func.isRequired,
 }
 
@@ -63,8 +58,6 @@ export default connect(
   state => ({
     products: getCartProducts(state),
     total: getTotal(state),
-    error: getCheckoutError(state),
-    checkoutPending: isCheckoutPending(state),
   }),
-  { checkout, removeFromCart },
+  { removeFromCart },
 )(Cart)
