@@ -49,11 +49,6 @@ function visibleIds(state = [], action) {
   }
 }
 
-export default combineReducers({
-  byId,
-  visibleIds,
-})
-
 export function getProduct(state, id) {
   return state.byId[id]
 }
@@ -61,3 +56,8 @@ export function getProduct(state, id) {
 export function getVisibleProducts(state) {
   return state.visibleIds.map(id => getProduct(state, id))
 }
+
+export default combineReducers({
+  byId,
+  visibleIds,
+})

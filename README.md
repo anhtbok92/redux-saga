@@ -197,3 +197,12 @@ import handleNewMessage from './sagas'
 //...
 sagaMiddleware.run(handleNewMessage)
 ```
+
+### Các hàm helper trong Redux-saga
+
+- takeEvery(): thực thi và trả lại kết quả của mọi actions được gọi.
+- takeLastest() : có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng.
+- take() : tạm dừng cho đến khi nhận được action.
+- put() : dispatch một action.
+- call(): gọi function. Nếu nó return về một promise, tạm dừng saga cho đến khi promise được giải quyết.
+- race() : chạy nhiều effect đồng thời, tuy nhiên chỉ lấy kết quả của effect nhanh nhất, và hủy kết quả của những effect còn lại.
